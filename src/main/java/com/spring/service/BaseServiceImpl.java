@@ -54,7 +54,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public UserDto getUserById(int userId) {
 		UserDto result = null;
@@ -73,7 +72,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public MyResponse getNoOfUsers(CourseRequest req) {
 		ResponseEntity<MyResponse> result = null;
@@ -96,7 +94,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public MyResponse getNoOfByAdmin(CourseRequest req) {
 		ResponseEntity<MyResponse> result = null;
@@ -120,7 +117,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getAllCourse(CourseRequest req) {
 		ResponseEntity<LmsResponse> result = null;
@@ -142,7 +138,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getCourseById(int course) {
 		ResponseEntity<LmsResponse> result = null;
@@ -164,7 +159,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<DropDownDataDto> getDropDownSetupData() {
 		ResponseEntity<DropDownDataDto> result = null;
@@ -181,7 +175,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getCourseTopic(int courseTopicId) {
 		ResponseEntity<LmsResponse> result = null;
@@ -203,7 +196,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<MyResponse> getAllPurchased(int userId) {
 		ResponseEntity<MyResponse> result = null;
@@ -226,7 +218,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<MyResponse> getAllHighestCourse(int userId) {
 		ResponseEntity<MyResponse> result = null;
@@ -250,7 +241,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<JSONObject> getAllCoursesBycategory(Set<Integer> set) {
 		ResponseEntity<JSONObject> result = null;
@@ -272,7 +262,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getAllCoursesDurationList(Set<Integer> set) {
 		ResponseEntity<LmsResponse> result = null;
@@ -294,7 +283,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getAllCoursesCategory() {
 		ResponseEntity<LmsResponse> result = null;
@@ -322,7 +310,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getAllapplyRecommendationAlgorithm(Set<Integer> set) {
 		ResponseEntity<LmsResponse> result = null;
@@ -347,7 +334,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<Integer> getUserDuration(CourseRequest reqs) {
 		ResponseEntity<Integer> result = null;
@@ -367,7 +353,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public List<UserDto> getUsers() {
 		List<UserDto> result = null;
@@ -388,7 +373,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public void createUser(UserDto user) {
 		try {
@@ -429,16 +413,16 @@ public class BaseServiceImpl implements IBaseService {
 		try {
 			WebClient webClient = WebClient.create("http://localhost:8089");
 
-			ResponseEntity<ApiResponse> response = webClient.post()
+			ApiResponse response = (webClient.post()
 					.uri("/external/createSessionId")
 					.accept(MediaType.APPLICATION_JSON)
 					.bodyValue(checkoutItem)
 					.retrieve()
 					.toEntity(ApiResponse.class)
-					.block();
+					.block()).getBody();
 
-			if (response != null && response.getBody() != null) {
-				sessionId = response.getBody().getMessage();
+			if (response != null ) {
+				sessionId = response.getMessage();
 			} else {
 				throw new CustomException("data is unexpectedly null. Unable to proceed.");
 			}
@@ -470,7 +454,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getCartItems(int userId) {
 		ResponseEntity<LmsResponse> result = null;
@@ -493,7 +476,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public ResponseEntity<LmsResponse> getWishlistItems(int userId) {
 		ResponseEntity<LmsResponse> result = null;
@@ -538,7 +520,6 @@ public class BaseServiceImpl implements IBaseService {
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	// @HystrixCommand(fallbackMethod = "userFallback")
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public Map<String, Object> getPlan(int userId) throws CustomException {
 		Map<String, Object> result = null;
