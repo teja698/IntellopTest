@@ -405,24 +405,7 @@ public class BaseServiceImpl implements IBaseService {
 
 	}
 
-	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
-	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
-	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
-	public String createSession(CheckoutDto checkoutItem) {
-		String sessionId = null;
-        try {
-            RestTemplate restTemplate = new RestTemplate();
-            ResponseEntity<ApiResponse> response = restTemplate.postForEntity("http://localhost:8089/external/createSessionId", checkoutItem, ApiResponse.class);
-			sessionId = (response.getBody() != null) ? response.getBody().getMessage() : null;
-            if (sessionId == null) {
-                throw new CustomException("data is unexpectedly null. Unable to proceed.");
-            }
-        } catch (Exception e) {
-            String stackTrace = ExceptionUtils.getStackTrace(e);
-            logger.error(stackTrace);
-        }
-        return sessionId;
-	}
+	
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
 	@Bulkhead(name = "lms", fallbackMethod = "userFallback", type = Bulkhead.Type.SEMAPHORE)
