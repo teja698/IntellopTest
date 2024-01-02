@@ -410,27 +410,19 @@ public class BaseServiceImpl implements IBaseService {
 	@CircuitBreaker(name = "lms", fallbackMethod = "userFallback")
 	public String createSession(CheckoutDto checkoutItem) {
 		String sessionId = null;
-		try {
-			WebClient webClient = WebClient.create("http://localhost:8089");
-
-			ApiResponse response = (webClient.post()
-					.uri("/external/createSessionId")
-					.accept(MediaType.APPLICATION_JSON)
-					.bodyValue(checkoutItem)
-					.retrieve()
-					.toEntity(ApiResponse.class)
-					.block()).getBody();
-
-			if (response != null ) {
-				sessionId = response.getMessage();
-			} else {
-				throw new CustomException("data is unexpectedly null. Unable to proceed.");
-			}
-		} catch (Exception e) {
-			String stackTrace = ExceptionUtils.getStackTrace(e);
-			logger.error(stackTrace);
-		}
-		return sessionId;
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<ApiResponse> response = restTemplate.postForEntity("http://localhost:8089/external/createSessionId", checkoutItem, ApiResponse.class);
+			if (response.getBody() != null) {
+			sessionId = response.getBody().getMessage();
+            } else {
+                throw new CustomException("data is unexpectedly null. Unable to proceed.");
+            }
+        } catch (Exception e) {
+            String stackTrace = ExceptionUtils.getStackTrace(e);
+            logger.error(stackTrace);
+        }
+        return sessionId;
 	}
 
 	@Retry(name = "lms", fallbackMethod = "userFallbackRetry")
