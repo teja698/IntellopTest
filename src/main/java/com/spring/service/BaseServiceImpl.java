@@ -413,9 +413,8 @@ public class BaseServiceImpl implements IBaseService {
         try {
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<ApiResponse> response = restTemplate.postForEntity("http://localhost:8089/external/createSessionId", checkoutItem, ApiResponse.class);
-			if (response.getBody() != null) {
-			sessionId = response.getBody().getMessage();
-            } else {
+			sessionId = (response.getBody() != null) ? response.getBody().getMessage() : null;
+            if (sessionId == null) {
                 throw new CustomException("data is unexpectedly null. Unable to proceed.");
             }
         } catch (Exception e) {
